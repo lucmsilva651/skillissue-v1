@@ -1,0 +1,58 @@
+FTYPE = SKILLISSUE	++AN NEW PROGRAMMING LANGUAGE++
+FNAME = STARTFILE.LUC  ++SAMPLE FILE NAME++
+FAUTH = fauth.class.fauthutils  ++FAUTH CLASS REDIRECT++
+FYEAR = false  ++UNDEFINED YEAR++
+
+++FUNCTIONS HERE++
+FSTART(  ++THE START FUNCTION++
+	fstart.class.abnt{
+		fstart.importclass abnt2
+		fstart.importclass portuguese
+		fstart.importclass languages
+		fstart.importclass classlink
+		
+		link abnt & abnt2 & portuguese & languages{
+			linkmode = classlink
+			linkmode = true
+			linkmode.name = ABNTClass.link
+		}
+	}
+)
+
+FAUTH(  ++THE AUTH FUNCTION++
+	fauth.class.fauthutils{
+		fauth.importclass fauthutilslib
+		fauth.importclass stringlink
+		
+		fauthutilslib.author.user = john.doe
+		fauthutilslib.author.id = sampleid
+		fauthutilslib.author.firstname = John
+		fauthutilslib.author.lastname = Doe
+		fauthutilslib.author.fullname = John Doe
+		
+		link author.user & author.id & author.firstname & author.lastname & author.fullname{
+			linkmode = stringlink
+			linkmode = true
+			linkmode.name = FAUTHUtils.link
+	}
+)
+
+FREAD(  ++THE READ FUNCTION++
+	fread.class.functionread{
+		fread.importclass functionread
+		fread.importclass functionread = subclass.read
+		fread.importclass classlink
+		
+		functionread.read = FSTART & FAUTH
+		functionread.read.enableerrorcheck = true
+		
+		link functionread & subclass.read{
+			linkmode = classlink
+			linkmode = true
+			linkmode.name = FREAD.link
+		}
+	}
+)
+
+++END OF FILE++
+FEND
